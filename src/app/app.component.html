@@ -5,7 +5,7 @@
       
       
       
-      <form action="#" #userForm="ngForm">
+      <form action="#" #userForm="ngForm" (ngSubmit)="enviarForm()">
         <mat-form-field appearance="outline">
           <mat-label>Nome</mat-label>
           <input type="text" matInput [(ngModel)]="dadosUsuario.nome" name="nome" required minlength="4" #inputNome="ngModel">
@@ -60,9 +60,11 @@
           
         </mat-form-field>
       
-        <button type="submit" mat-raised-button color="primary">Cadastrar</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="userForm.invalid">Cadastrar</button>
+        
       </form>
     </mat-card-content>
   </mat-card>
 </div>
+<app-reactive></app-reactive>
 
